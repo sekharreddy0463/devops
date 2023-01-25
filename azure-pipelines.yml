@@ -16,3 +16,8 @@ steps:
     sudo dpkg -i trivy_$(trivyVersion)_Linux-64bit.deb
     trivy -v
   displayName: 'Download and install Trivy'
+  - task: CmdLine@2
+  displayName: "Run trivy scan"
+  inputs:
+    script: |
+      trivy image liamgu/azuredevopscontainersdemo:74
